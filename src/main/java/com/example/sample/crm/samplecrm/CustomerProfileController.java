@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
@@ -49,5 +50,13 @@ public class CustomerProfileController {
     public void updateCustomerProfile(@PathVariable final Long id, final @RequestBody CustomerProfile customerProfile) {
         profileService.updateCustomerProfile(id, customerProfile);
     }
+
+    @RequestMapping(method = DELETE, value = "customerprofiles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteCustomerProfile(@PathVariable final Long id) {
+        profileService.deleteCustomerProfile(id);
+    }
+
+
 
 }

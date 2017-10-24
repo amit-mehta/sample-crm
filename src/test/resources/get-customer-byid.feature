@@ -7,7 +7,7 @@ Feature: Get customer profile request
     Given customer <customer-profile> with id <id> already exists in the system
     When when user send a get request to get customer's profile with id <id>
     Then a http status code <status> should be returned
-    And response should contain : <customer-profile>
+    And response should be: <customer-profile> json string
 
     Examples:
       | status | customer-profile                                                 | id |

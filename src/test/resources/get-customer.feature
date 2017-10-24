@@ -7,8 +7,8 @@ Feature: Get customer profile request
     Given customers <existing-customer> are exists in the system
     When when user send a get request to get all customer's profile
     Then a http status code <status> should be returned
-    And response should contain : <total> customers
+    And response should contain : <total> number of customers
 
     Examples:
-      | status | existing-customer                                                                                                                   | total |
-      | 200    | [{"id": "1", "firstName": "CustomerOneFName","lastName": "CustomerOneLName"},{"firstName": "CustomerTwoFName","lastName": "CustomerTwoLName"}] |  2    |
+      | status | existing-customer                                                                                                                              | total |
+      | 200    | [{"id": "1", "firstName": "CustomerOneFName","lastName": "CustomerOneLName"},{"firstName": "CustomerTwoFName","lastName": "CustomerTwoLName"}] | 2     |

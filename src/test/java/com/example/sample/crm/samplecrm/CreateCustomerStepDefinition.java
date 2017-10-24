@@ -92,12 +92,6 @@ public class CreateCustomerStepDefinition {
                 .contentType(MediaType.APPLICATION_JSON_VALUE));
     }
 
-    @And("^response should contain : (\\d) customers$")
-    public void responseShouldContainTotalCustomers(int expectedNumOfProfiles) throws Throwable {
-        //TODO assert the total number of customer profiles is 2
-        resultActions.andExpect(jsonPath("$.*", hasSize(2)));
-    }
-
     @Given("^customer (.*) with id (\\d) already exists in the system$")
     public void customerCustomerProfileWithIdIdAlreadyExistsInTheSystem(String jsonCustProfile, long id) throws Throwable {
         CustomerProfile customerProfile = new ObjectMapper().readValue(jsonCustProfile, CustomerProfile.class);
@@ -110,8 +104,14 @@ public class CreateCustomerStepDefinition {
                 .contentType(MediaType.APPLICATION_JSON_VALUE));
     }
 
-    @And("^response should contain : (.*)$")
+    @And("^response should be: (.*) json string$")
     public void responseShouldContainCustomerProfile(String expectedCustProfile) throws Throwable {
-        resultActions.andExpect(content().json("{\"firstName\":\"CustomerOneFName\",\"lastName\":\"CustomerOneLName\"}"));
+        resultActions.andExpect(content().json(expectedCustProfile));
+    }
+
+    @And("^response should contain : (\\d) number of customers$")
+    public void responseShouldContainTotalCustomers(int expectedNumOfProfiles) throws Throwable {
+        //TODO assert the total number of customer profiles is 2
+        resultActions.andExpect(jsonPath("$.*", hasSize(expectedNumOfProfiles)));
     }
 }

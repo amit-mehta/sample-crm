@@ -42,4 +42,12 @@ public class CustomerProfileService {
         profile.setDateOfBirth(newProfile.getDateOfBirth());
         repository.save(profile);
     }
+
+    public void deleteCustomerProfile(Long id) {
+        if(repository.exists(id)) {
+            repository.delete(id);
+        } else {
+            throw new ResourceNotFoundException();
+        }
+    }
 }
