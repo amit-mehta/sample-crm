@@ -47,7 +47,7 @@ The endpoints can be devided into two categories
 * publicly accessible endpoints
 * Endpoints that requires authentication or authorization
 
-Security can be implemented using Spring Zull and JWT token based authentication mecanism.  
+Security can be implemented using Netflix Zuul and JWT token based authentication mecanism.  
 
 There will be sign up module for adding authenticated users for performing non public actions.
 
