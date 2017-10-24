@@ -47,9 +47,9 @@ The endpoints can be devided into two categories
 * publicly accessible endpoints
 * Endpoints that requires authentication or authorization
 
-This can be implemented using Spring Zull and JWT token based authentication mecanism.  
+Security can be implemented using Spring Zull and JWT token based authentication mecanism.  
 
-There will be sign up module for adding authenticated users for performing non public actions.  
+There will be sign up module for adding authenticated users for performing non public actions.
 
 User will pass username & password over secure https based connection, once autheniticated JWT token is returned to the user which will be used for subsequent request.  
 
